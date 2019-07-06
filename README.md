@@ -11,6 +11,7 @@
 
 ### Association
 - has_many :groups
+- has_many :messages
 
 ## messagesテーブル
 
@@ -23,10 +24,10 @@
 |timestamps|integer||
 
 ### Association
-- has_many: users
-- has_many :groups
+- belongs_to: users
+- belongs_to :groups
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -37,3 +38,15 @@
 - has_many: users, through users
 - has_one: message
 
+
+## membersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|integer||
+|user_id|integer||
+|group_id|integer||
+
+### Association
+- belongs_to: users
+- belongs_to: groups
